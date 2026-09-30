@@ -9,7 +9,8 @@ type Options struct {
 }
 
 // Process is a best-effort owner description. Empty fields mean unknown.
-// UID is the process real UID, not the socket UID. Container is a heuristic,
+// UID is the process real UID on Linux, or token user SID on Windows, not the
+// socket UID. Container is a heuristic,
 // never evidence that an unmarked process runs on the host.
 type Process struct {
 	PID        int    `json:"pid"`

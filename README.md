@@ -64,6 +64,9 @@ PORTWHO_TEST_DEVICES=1 go test ./internal/ports -run TestDeviceSelf -v
   `Remote`가 빈 문자열(`?`)이어도 연결되지 않았다고 단정할 수 없습니다.
 - 스냅샷과 프로세스 조회는 비원자적이며 PID 재사용을 완전히 방지하지 못합니다.
   일부 테이블 실패는 warnings, 전체 실패는 비정상 종료로 표시합니다.
+- Windows 실기 대조에서 `Get-NetTCPConnection`에 나타나는 추가 TCP `BOUND` wildcard
+  예약행은 `GetExtendedTcpTable(OWNER_PID_ALL)`에도 없었습니다. `--all`은 IP Helper가
+  제공한 TCP 상태 전체이며, PowerShell의 모든 예약행까지 완전히 동일한 목록이 아닙니다.
 - `--devices`는 Linux 전용이며 Windows에서는 경고를 냅니다.
 
 ```sh
